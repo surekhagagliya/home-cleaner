@@ -1,0 +1,14 @@
+<h1>Dashbords index</h1>
+<%= current_user.email%><br>
+<% if !current_user.profile.eql? 'admin' %>
+    <%= link_to  "City", cities_path %> ||
+    <%= link_to  "Cleaner", cleaners_path %> ||
+<% end %>
+<% if current_user.profile.present?%>
+    <strong>Mobile No.<%= current_user.profile.mobile_no%></strong>
+<% else %>
+    <%= link_to  "Profile", new_profile_path %>
+<% end %> ||
+<%= link_to  "Bookings", new_booking_path %>
+
+

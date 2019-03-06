@@ -1,0 +1,7 @@
+<tr>
+    <td><%= city.name%></td>
+    <td><%= link_to 'edit', edit_city_path(city)%></td>
+    <td><%= link_to 'delete', city_path(city), remote: true,
+            method: :delete, data: {confirm: 'Are You Sure Delete This Record'}%></td>
+
+</tr>

@@ -1,0 +1,11 @@
+<tr>
+    <td><%= cleaner.first_name%></td>
+    <td><%= cleaner.last_name%></td>
+    <td><%= cleaner.phone_no%></td>
+    <td><%= cleaner.cities.pluck(:name).join(', ')%></td>
+    <td><%= cleaner.quality_score.to_f%></td>
+
+    <td><%= link_to 'edit', edit_cleaner_path(cleaner)%></td>
+    <td><%= link_to 'delete', cleaner_path(cleaner), remote: true,
+            method: :delete, data: {confirm: 'Are You Sure Delete This Record'}%></td>
+</tr>

@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  booking_date: 2019-03-05
+  user: one
+  cleaner: one
+
+two:
+  booking_date: 2019-03-05
+  user: two
+  cleaner: two

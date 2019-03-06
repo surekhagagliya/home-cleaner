@@ -1,0 +1,43 @@
+<div class="col-md-6">
+    <h1>This is The Booking Form</h1><br>
+    <%= form_for(@booking, html: {class: 'booking_form'}) do |form| %>
+        <%if @booking.errors.any? %>
+            <h2>
+                <%= pluralize(@booking.errors.count, 'error')%>
+                this booking information save before plz follow validation
+            </h2>
+            <% @booking.errors.full_messages.each do |error|%>
+                <div><%= error%></div>
+            <% end %>
+        <% end %>
+        <div class="form-group">
+            <%= form.label :'Cleaner Lists'%>:
+            <%= form.collection_select :city_id, current_user.cities.all, :id, :name, { include_blank: "Select City"}, { class: "form-control city-dropdown"}  %>
+        </div>
+        <div class="form-group">
+            <%= form.label :'Cleaner Lists'%>:
+            <%= form.collection_select :cleaner_id, current_user.cleaners.all, :id, :first_name, { include_blank: "Select Cleaner"}, { class: "form-control cleaner-dropdown"}  %>
+        </div>
+        <div class="form-group">
+            <%= form.label :'Booking Date And Time'%>
+            <%= form.text_field :booking_date, class: 'form-control datetime_picker', placeholder:'Select Date and Time'%>
+            <script type="text/javascript">
+                $( document ).on('turbolinks:load', function() {
+                    $('.datetime_picker').click(function(){
+                        $(this).datetimepicker({
+                            icons: {
+                                time: "fa fa-clock-o",
+                                date: "fa fa-calendar",
+                                up: "fa fa-arrow-up",
+                                down: "fa fa-arrow-down"
+                            },
+                            inline: true,
+                            sideBySide: true
+                        });
+                    });
+                });
+            </script>
+        </div>
+        <%= form.submit 'Booking', class: 'btn btn-warning'%>
+    <% end %>
+</div>

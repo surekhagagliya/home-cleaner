@@ -1,0 +1,18 @@
+<div class="col-md-6">
+    <%= form_for(@city, url: cities_path ,remote:true, html: {class: 'city_form'}) do |city_form| %>
+        <%if @city.errors.any? %>
+            <h2>
+                <%= pluralize(@city.errors.count, 'error')%>
+                this city information save before plz follow validation
+            </h2>
+            <% @city.errors.full_messages.each do |error|%>
+                <div><%= error%></div>
+            <% end %>
+        <% end %>
+        <div class="form-group">
+            <%= city_form.label :'City Name'%>:
+            <%= city_form.text_field :name, class: 'form-control', placeholder:'enter city name'%>
+        </div>
+        <%= city_form.submit 'add city', class:'btn btn-primary'%>
+    <% end %>
+</div>

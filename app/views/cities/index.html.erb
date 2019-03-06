@@ -1,0 +1,14 @@
+<h3><strong><%= current_user.email%></strong></h3>
+<h4>City Index</h4>
+<%= render "form" %><br>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th colspan="2">Actions</th>
+        </tr>
+    </thead>
+    <tbody class='city-body'>
+        <%= render partial: 'city_rows', collection: @cities, as: :city%>
+    </tbody>
+</table>
