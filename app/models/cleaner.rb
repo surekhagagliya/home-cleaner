@@ -1,4 +1,4 @@
-# create cleaner model
+# Create Cleaner Class
 class Cleaner < ApplicationRecord
   # associations
   belongs_to :user

@@ -18,6 +18,7 @@ class BookingsController < ApplicationController
 
   def show; end
 
+  # this method for select any city and display particular cleaners
   def featching_cleaner
     city = City.find_by(id: params[:city_id])
     @cleaners = city.cleaners
@@ -25,6 +26,7 @@ class BookingsController < ApplicationController
 
   private
 
+  # this method for parmit params
   def booking_params
     params.require(:booking).permit(:booking_date, :city_id, :cleaner_id)
   end

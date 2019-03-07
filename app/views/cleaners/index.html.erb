@@ -1,18 +1,21 @@
-<h3><strong><%= current_user.email%></strong></h3>
-<h4>Cleaner Index</h4>
-<%= render "form" %><br>
-<table class="table table-bordered">
-    <thead>
-        <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>Phone No</th>
-            <th>City</th>
-            <th>Quentity</th>
-            <th colspan="2">Actions</th>
-        </tr>
-    </thead>
-    <tbody class='cleaner-body'>
-        <%= render partial: 'cleaner_rows', collection: @cleaners, as: :cleaner%>
-    </tbody>
-</table>
+<div class="col-md-6">
+    <%= render "form" %><br>
+    <table class="table table-hover">
+        <thead class="thead-dark">
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Phone No</th>
+                <th>City</th>
+                <th>Quentity</th>
+                <th colspan="3">Actions</th>
+            </tr>
+        </thead>
+        <tbody class='cleaner-body'>
+            <%= render partial: 'cleaner_rows', collection: @cleaners, as: :cleaner%>
+        </tbody>
+    </table>
+    <div id='post-content'></div>
+</div>
+<br><br>
+<%= render partial: 'layouts/footer'%>

@@ -33,6 +33,7 @@ class CitiesController < ApplicationController
 
   private
 
+  # this method for parmit params
   def city_params
     params.require(:city).permit(:name)
   end

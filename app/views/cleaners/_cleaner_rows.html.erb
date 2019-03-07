@@ -5,7 +5,12 @@
     <td><%= cleaner.cities.pluck(:name).join(', ')%></td>
     <td><%= cleaner.quality_score.to_f%></td>
 
-    <td><%= link_to 'edit', edit_cleaner_path(cleaner)%></td>
-    <td><%= link_to 'delete', cleaner_path(cleaner), remote: true,
-            method: :delete, data: {confirm: 'Are You Sure Delete This Record'}%></td>
+    <%if current_user.id == cleaner.user_id%>
+        <td><%= link_to  "<i class='fa fa-eye' aria-hidden='true'></i>".html_safe, cleaner_path(cleaner), remote: true %>
+        <td><%= link_to "<i class='fa fa-pencil' aria-hidden='true'></i>".html_safe, edit_cleaner_path(cleaner)%></td>
+        <td><%= link_to "<i class='fa fa-trash' aria-hidden='true'></i>".html_safe, cleaner_path(cleaner), remote: true,
+                method: :delete, data: {confirm: 'Are You Sure Delete This Record'}%></td>
+    <% else %>
+        <td><%= link_to  "<i class='fa fa-eye' aria-hidden='true'></i>".html_safe, cleaner_path(cleaner), remote: true %>
+    <% end %>
 </tr>

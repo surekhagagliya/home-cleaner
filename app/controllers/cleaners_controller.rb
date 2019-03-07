@@ -1,7 +1,7 @@
 class CleanersController < ApplicationController
   # collbacks
   before_action :authenticate_user!
-  before_action :find_cleaner, only: %i[edit update destroy]
+  before_action :find_cleaner, only: %i[show edit update destroy]
 
   def index
     @cleaners = Cleaner.all
@@ -14,6 +14,12 @@ class CleanersController < ApplicationController
       respond_to do |format|
         format.js
       end
+    end
+  end
+
+  def show
+    respond_to do |format|
+      format.js
     end
   end
 
@@ -33,6 +39,7 @@ class CleanersController < ApplicationController
 
   private
 
+  # this method for parmit params
   def cleaner_params
     params.require(:cleaner).permit(:first_name, :last_name, :phone_no, :quality_score, city_ids: [])
   end

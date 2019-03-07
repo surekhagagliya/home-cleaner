@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :profiles, only: %i[new create show]
   resources :cities, except: %i[new show]
-  resources :cleaners, except: %i[new show]
+  resources :cleaners, except: %i[new]
   get '/featching_cleaner', to: 'bookings#featching_cleaner'
   resources :bookings
 

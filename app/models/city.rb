@@ -1,4 +1,4 @@
-# create city model
+# Create City Class
 class City < ApplicationRecord
   # associations
   belongs_to :user
@@ -6,5 +6,5 @@ class City < ApplicationRecord
   has_many :bookings, dependent: :destroy
 
   #validations
-  validates :name, presence: true
+  validates :name, presence: true, length: {minimum: 2}
 end

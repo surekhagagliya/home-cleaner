@@ -1,5 +1,5 @@
-<div class="col-md-6">
-    <%= form_for(@cleaner, url: cleaners_path, remote: true , html: {class: 'cleaner_form'}) do |form| %>
+<div>
+    <%= form_for(@cleaner, url: cleaners_path, remote: true , html: {class: 'cleaner_form table'}) do |form| %>
         <%if @cleaner.errors.any? %>
             <h2>
                 <%= pluralize(@cleaner.errors.count, 'error')%>
@@ -10,27 +10,27 @@
             <% end %>
         <% end %>
         <div class="form-group">
-            <%= form.label :'First Name'%>
-            First Name: <%= form.text_field :first_name, class: 'form-control', placeholder: 'enter your first name'%>
+            <%= form.label 'First Name'%>
+            <%= form.text_field :first_name, class: 'form-control', placeholder: 'enter your first name'%>
         </div>
         <div class="form-group">
-            <%= form.label :'Last Name'%>
+            <%= form.label 'Last Name'%>
             <%= form.text_field :last_name, class: 'form-control', placeholder: 'enter your last name'%>
         </div>
         <div class="form-group">
-            <%= form.label :'City Lists'%>:
+            <%= form.label 'City Lists'%>:
             <%= form.collection_check_boxes(:city_ids, current_user.cities.all, :id, :name, checked: @cleaner.cities.map(&:id)) do |b| %>
                 <%= b.check_box %> <%= b.label %>
             <% end %>
         </div>
         <div class="form-group">
-            <%= form.label :'Phone No'%>
+            <%= form.label 'Phone No'%>:
             <%= form.text_field :phone_no, class: 'form-control', placeholder: 'enter your phone no'%>
         </div>
         <div class="form-group">
-            <%= form.label :'Quality Score'%>
+            <%= form.label 'Quality Score'%>:
             <%= form.text_field :quality_score, class: 'form-control', placeholder: 'enter your quality score'%>
         </div>
-        <%= form.submit 'add Cleaner', class: 'btn btn-success'%>
+        <%= form.submit 'Submit', class: 'btn btn-primary'%>
     <% end %>
 </div>

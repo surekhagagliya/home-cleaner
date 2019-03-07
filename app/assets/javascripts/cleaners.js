@@ -19,16 +19,23 @@ function cleanerValidation(){
                     required: true,
                     maxlength: 10,
                     minlength: 2
-                },"cleaner[phone_no]":{
+                },
+                "cleaner[city_ids][]":{
+                    required: true
+                },
+                "cleaner[quality_score]":{
+                    required: true
+                },
+                "cleaner[phone_no]":{
                     required: true,
                     maxlength: 10
                 },
             },
             messages: {
                 "cleaner[first_name]":{
-                    required: "city Name is Required",
-                    maxlength: "city Name must be less than 10 character",
-                    minlength: "city Name must be more than 2 character"
+                    required: "Cleaner Name is Required",
+                    maxlength: "Cleaner Name must be less than 10 character",
+                    minlength: "Cleaner Name must be more than 2 character"
                 }
             }
         });

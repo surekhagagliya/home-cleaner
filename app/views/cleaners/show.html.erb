@@ -1,7 +1,0 @@
-First Name: <%= @cleaner.first_name%><br>
-Last Name: <%= @cleaner.last_name%><br>
-Phone No.: <%= @cleaner.phone_no%><br>
-City: <%= @cleaner.cities.pluck(:name).join(', ')%><br>
-Quality Score: <%= @cleaner.quality_score.to_f%><br>
-
-<%= link_to  "back", cleaners_path %>

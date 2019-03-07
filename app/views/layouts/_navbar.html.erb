@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-sm bg-success rounded navbar-dark">
+  <!-- Brand -->
+  <a class="navbar-brand" href="<%= root_path%>">Dashbord</a>
+
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto">
+            <% if current_user.present?%>
+                <li class="nav-item active">
+                    <%= link_to  "City", cities_path, class:"nav-link" %>
+                </li>
+                <li class="nav-item active">
+                    <%= link_to  "Cleaner", cleaners_path, class:"nav-link" %>
+                </li>
+            <% end %>
+            <li class="nav-item active">
+                <%= link_to  "Bookings", new_booking_path, class: "nav-link" %>
+            </li>
+
+        <!-- Dropdown -->
+        <li class="nav-item dropdown">
+            <% if current_user.present?%>
+                <a class="nav-link active dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown">
+                    <%= current_user.email%></a>
+                <div class="dropdown-menu active">
+                    <% if current_user.profile.present?%>
+                        <a class="dropdown-item"><strong>Mobile.</strong><%= current_user.profile.mobile_no%></a>
+                    <% else%>
+                        <%= link_to  "Profile", new_profile_path, class:"dropdown-item active" %>
+                    <% end %>
+                    <hr>
+                    <%= link_to  "LogOut", destroy_user_session_path, method: :delete, class:"dropdown-item" %>
+                </div>
+            <% else %>
+                <%= link_to  "SignIn", new_user_session_path, class:'nav-link'%>
+            <% end %>
+        </li>
+    </ul>
+  </ul>
+</nav>
+<br>

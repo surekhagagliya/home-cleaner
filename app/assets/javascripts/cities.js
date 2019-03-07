@@ -18,9 +18,9 @@ function cityValidation(){
             },
             messages: {
                 "city[name]":{
-                    required: "city Name is Required",
-                    maxlength: "city Name must be less than 10 character",
-                    minlength: "city Name must be more than 2 character"
+                    required: "City Name is Required",
+                    maxlength: "City Name must be less than 10 character",
+                    minlength: "City Name must be more than 2 character"
                 }
             }
         });
