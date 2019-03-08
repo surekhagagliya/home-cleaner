@@ -1,5 +1,5 @@
 <div>
-    <%= form_for(@city, url: cities_path ,remote:true, html: {class: 'city_form table'}) do |city_form| %>
+    <%= form_for(@city, remote:true, html: {class: 'city_form table'}) do |city_form| %>
         <%if @city.errors.any? %>
             <h2>
                 <%= pluralize(@city.errors.count, 'error')%>
@@ -10,7 +10,7 @@
             <% end %>
         <% end %>
         <div class="form-group">
-            <span>*</span><%= city_form.label 'City Name'%>:
+            <%= city_form.label 'City Name'%><span>*</span>
             <%= city_form.text_field :name, class: 'form-control', placeholder:'enter city name' %>
         </div>
             <%= city_form.submit 'Submit', class:'btn btn-primary'%>

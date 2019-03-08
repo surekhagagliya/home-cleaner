@@ -6,7 +6,7 @@ class Booking < ApplicationRecord
   belongs_to :city
 
   # validations
-  validates :city_id, :cleaner_id, :booking_date, presence: true
+  validates :city_id, :cleaner_id, :booking_date, :email, presence: true
   validates :booking_date, uniqueness: { scope: :cleaner_id}
   validate :date_time_check?
 

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <h1>Welcome to Cleaning Service, <%= @booking.cleaner.first_name %><%= @booking.cleaner.last_name %></h1>
+        <p style="color: red;">
+            You have successfully booking,<br>
+            Your Cleaning Time is :<%= @booking.booking_date.strftime("%d-%b-%Y at %H:%M %p")%><br>
+            Customer Name: <%= @booking.user.profile.first_name %> <%= @booking.user.profile.last_name %><br>
+            Customer Mobile No. <%= @booking.user.profile.mobile_no%><br>
+            Customer Address: <%= @booking.user.profile.address%><br>
+        </p>
+        <p>
+            To booking to the site, just follow this link: <%= @url %>.
+        </p>
+        <p>Thanks for joining and have a great day!</p>
+    </body>
+</html>
+

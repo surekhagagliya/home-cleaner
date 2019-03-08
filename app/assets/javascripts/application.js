@@ -23,7 +23,6 @@
 
 $( document ).on('turbolinks:load', function() {
     $('.city-dropdown').change(function(){
-        console.log($(this).val())
         $.ajax({
             type: 'get',
             url: '/featching_cleaner',

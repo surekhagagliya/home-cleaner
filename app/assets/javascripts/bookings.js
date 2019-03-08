@@ -4,7 +4,22 @@
 
 $(document).on('turbolinks:load',function(){
     bookingValidation();
+    $('.datetime_picker').click(function(){
+        $(this).datetimepicker({
+            minDate:moment(),
+            icons: {
+                time: "fa fa-clock-o",
+                date: "fa fa-calendar",
+                up: "fa fa-arrow-up",
+                down: "fa fa-arrow-down"
+            },
+            inline: true,
+            sideBySide: true,
+            format: 'DD/MM/YYYY hh:mm'
+        });
+    });
 });
+
 function bookingValidation(){
     $('.booking_form').each(function(){
         $(this).validate({

@@ -1,9 +1,17 @@
 <div class="container">
-  <div class="jumbotron col-md-8" id="home">
-    <h5><strong>City: </strong><%= @booking.city.name%><br>
-    <strong>Cleaner: </strong><%= @booking.cleaner.first_name%> <%= @booking.cleaner.last_name%><br>
-    <strong>Booking Date: </strong><%= @booking.booking_date.strftime("%m-%b-%Y at %H:%M %p")%></h5>
-    <h3>Your Booking is Confirm Successfully........<h3><br>
-    <%= link_to "<i class='fa fa-hand-o-left fa-2x' aria-hidden='true'></i>".html_safe, new_booking_path %>
-  </div>
+    <div class="jumbotron col-md-8" id="home">
+        <h5><strong>City: </strong><%= @booking.city.name%><br>
+        <strong>Cleaner: </strong>
+        <%= @booking.cleaner.first_name%> <%= @booking.cleaner.last_name%><br>
+        <strong>Booking Date: </strong>
+        <%= @booking.booking_date.strftime("%d-%b-%Y at %H:%M %p")%><br>
+        <strong>Customer Name: </strong>
+        <%= @booking.user.profile.first_name%> <%=@booking.user.profile.last_name%><br>
+        <strong>Customer Mobile No: </strong>
+        <%= @booking.user.profile.mobile_no%><br>
+        <strong>Customer Address: </strong>
+        <%= @booking.user.profile.address%></h5><br>
+        <h3>Your Booking is Confirm Successfully........<h3><br>
+        <%= link_to "<i class='fa fa-hand-o-left fa-2x' aria-hidden='true'></i>".html_safe, new_booking_path %>
+    </div>
 </div>

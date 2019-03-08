@@ -6,9 +6,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   # associations
+  has_one  :profile
   has_many :cities, dependent: :destroy
   has_many :cleaners, dependent: :destroy
-  has_one :profile
   has_many :bookings, dependent: :destroy
 
 end

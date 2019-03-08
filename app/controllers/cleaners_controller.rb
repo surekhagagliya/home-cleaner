@@ -1,6 +1,5 @@
 class CleanersController < ApplicationController
   # collbacks
-  before_action :authenticate_user!
   before_action :find_cleaner, only: %i[show edit update destroy]
 
   def index
@@ -14,6 +13,8 @@ class CleanersController < ApplicationController
       respond_to do |format|
         format.js
       end
+    else
+      render 'new'
     end
   end
 
@@ -23,23 +24,31 @@ class CleanersController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    respond_to do |format|
+      format.js
+    end
+  end
 
   def update
     if @cleaner.update(cleaner_params)
-      redirect_to @cleaner
-    else
-      render 'edit'
+      respond_to do |format|
+        format.js
+      end
     end
   end
 
   def destroy
-    redirect_to cleaners_path if @cleaner.destroy
+    if @cleaner.destroy
+      respond_to do |format|
+        format.js
+      end 
+    end
   end
 
   private
 
-  # this method for parmit params
+  #  permit cleaner params
   def cleaner_params
     params.require(:cleaner).permit(:first_name, :last_name, :phone_no, :quality_score, city_ids: [])
   end

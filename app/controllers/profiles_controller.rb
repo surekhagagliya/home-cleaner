@@ -1,6 +1,5 @@
 class ProfilesController < ApplicationController
   # collbacks
-  before_action :authenticate_user!
   before_action :find_profile, only: %i[show]
 
   def new
@@ -18,7 +17,7 @@ class ProfilesController < ApplicationController
 
   private
 
-  # this method for parmit params
+  #  permit Profile params
   def profile_params
     params.require(:profile).permit(:first_name, :last_name, :address, :mobile_no)
   end

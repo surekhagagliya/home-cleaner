@@ -10,26 +10,26 @@
             <% end %>
         <% end %>
         <div class="form-group">
-            <%= form.label 'First Name'%>
+            <%= form.label 'First Name'%><span>*</span>
             <%= form.text_field :first_name, class: 'form-control', placeholder: 'enter your first name'%>
         </div>
         <div class="form-group">
-            <%= form.label 'Last Name'%>
+            <%= form.label 'Last Name'%><span>*</span>
             <%= form.text_field :last_name, class: 'form-control', placeholder: 'enter your last name'%>
         </div>
         <div class="form-group">
-            <%= form.label 'City Lists'%>:
-            <%= form.collection_check_boxes(:city_ids, current_user.cities.all, :id, :name, checked: @cleaner.cities.map(&:id)) do |b| %>
+            <%= form.label 'City Lists'%><span>*</span><br>
+            <%= form.collection_check_boxes(:city_ids, City.all, :id, :name, checked: @cleaner.cities.map(&:id)) do |b| %>
                 <%= b.check_box %> <%= b.label %>
             <% end %>
         </div>
         <div class="form-group">
-            <%= form.label 'Phone No'%>:
-            <%= form.text_field :phone_no, class: 'form-control', placeholder: 'enter your phone no'%>
+            <%= form.label 'Phone No'%><span>*</span>
+            <%= form.number_field :phone_no, class: 'form-control', placeholder: 'enter your phone no'%>
         </div>
         <div class="form-group">
-            <%= form.label 'Quality Score'%>:
-            <%= form.text_field :quality_score, class: 'form-control', placeholder: 'enter your quality score'%>
+            <%= form.label 'Quality Score'%><span>*</span>
+            <%= form.number_field :quality_score, class: 'form-control', placeholder: 'enter your quality score'%>
         </div>
         <%= form.submit 'Submit', class: 'btn btn-primary'%>
     <% end %>

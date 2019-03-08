@@ -14,6 +14,7 @@ ActiveRecord::Schema.define(version: 2019_03_05_104329) do
 
   create_table "bookings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.datetime "booking_date"
+    t.string "email"
     t.bigint "user_id"
     t.bigint "cleaner_id"
     t.bigint "city_id"

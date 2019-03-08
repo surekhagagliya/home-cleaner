@@ -1,6 +1,5 @@
 class CitiesController < ApplicationController
   # collbacks
-  before_action :authenticate_user!
   before_action :find_city, only: %i[edit update destroy]
 
   def index
@@ -17,23 +16,31 @@ class CitiesController < ApplicationController
     end
   end
 
-  def edit; end
+  def edit
+    respond_to do |format|
+      format.js
+    end 
+  end
 
   def update
     if @city.update(city_params)
-      redirect_to @city
-    else
-      render 'edit'
+      respond_to do |format|
+        format.js
+      end 
     end
   end
 
   def destroy
-    redirect_to cities_path if @city.destroy
+    if @city.destroy
+      respond_to do |format|
+        format.js
+      end 
+    end
   end
 
   private
 
-  # this method for parmit params
+  # permit city params
   def city_params
     params.require(:city).permit(:name)
   end

@@ -1,10 +1,12 @@
-<tr>
+<tr class="remove_city-<%= city.id %>">
     <td><%= city.name%></td>
-        <%if current_user.id == city.user_id%>
+        <% if current_user.id == city.user_id %>
             <td>
-                <%= link_to "<i class='fa fa-pencil' aria-hidden='true'></i>".html_safe, edit_city_path(city)%>
+                <%= link_to "<i class='fa fa-pencil' aria-hidden='true'></i>".html_safe, edit_city_path(city), remote: true %>
                 <%= link_to "<i class='fa fa-trash' aria-hidden='true'></i>".html_safe, city_path(city), remote: true,
                     method: :delete, data: {confirm: 'Are You Sure Delete This Record'}%>
             </td>
+        <% else %>
+            <td></td>
         <% end %>
 </tr>

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :cities, except: %i[new show]
   resources :cleaners, except: %i[new]
   get '/featching_cleaner', to: 'bookings#featching_cleaner'
-  resources :bookings
+  resources :bookings, only: %i[index new create show]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

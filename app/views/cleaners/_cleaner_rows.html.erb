@@ -1,4 +1,4 @@
-<tr>
+<tr class="remove_cleaner-<%= cleaner.id %>">
     <td><%= cleaner.first_name%></td>
     <td><%= cleaner.last_name%></td>
     <td><%= cleaner.phone_no%></td>
@@ -7,10 +7,12 @@
 
     <%if current_user.id == cleaner.user_id%>
         <td><%= link_to  "<i class='fa fa-eye' aria-hidden='true'></i>".html_safe, cleaner_path(cleaner), remote: true %>
-        <td><%= link_to "<i class='fa fa-pencil' aria-hidden='true'></i>".html_safe, edit_cleaner_path(cleaner)%></td>
+        <td><%= link_to "<i class='fa fa-pencil' aria-hidden='true'></i>".html_safe, edit_cleaner_path(cleaner), remote: true%></td>
         <td><%= link_to "<i class='fa fa-trash' aria-hidden='true'></i>".html_safe, cleaner_path(cleaner), remote: true,
                 method: :delete, data: {confirm: 'Are You Sure Delete This Record'}%></td>
     <% else %>
         <td><%= link_to  "<i class='fa fa-eye' aria-hidden='true'></i>".html_safe, cleaner_path(cleaner), remote: true %>
+        <td></td>
+        <td></td>
     <% end %>
 </tr>
