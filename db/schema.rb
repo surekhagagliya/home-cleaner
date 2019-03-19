@@ -12,7 +12,10 @@
 
 ActiveRecord::Schema.define(version: 2019_03_05_104329) do
 
-  create_table "bookings", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "bookings", force: :cascade do |t|
     t.datetime "booking_date"
     t.string "email"
     t.bigint "user_id"
@@ -25,7 +28,7 @@ ActiveRecord::Schema.define(version: 2019_03_05_104329) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
-  create_table "cities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "cities", force: :cascade do |t|
     t.string "name"
     t.bigint "user_id"
     t.datetime "created_at", null: false
@@ -33,12 +36,12 @@ ActiveRecord::Schema.define(version: 2019_03_05_104329) do
     t.index ["user_id"], name: "index_cities_on_user_id"
   end
 
-  create_table "cities_cleaners", id: false, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "cities_cleaners", id: false, force: :cascade do |t|
     t.bigint "city_id", null: false
     t.bigint "cleaner_id", null: false
   end
 
-  create_table "cleaners", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "cleaners", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.string "phone_no"
@@ -49,7 +52,7 @@ ActiveRecord::Schema.define(version: 2019_03_05_104329) do
     t.index ["user_id"], name: "index_cleaners_on_user_id"
   end
 
-  create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "profiles", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
     t.text "address"
@@ -60,7 +63,7 @@ ActiveRecord::Schema.define(version: 2019_03_05_104329) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
-  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
