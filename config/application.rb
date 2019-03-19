@@ -7,7 +7,6 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 I18n.available_locales = [:en, :ru, :du]
-
 module HomeWorkApp
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
