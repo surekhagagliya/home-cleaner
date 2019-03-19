@@ -1,0 +1,12 @@
+ru:
+  Languages: "Языки"
+  Cleaning_Service: "Уборка"
+  menu:
+    city: "статью"
+    cleaner: "статью"
+    booking: "бронирование"
+    languages:
+      lang: "Язык"
+      ru: "Русский"
+      en: "Английский"
+      du: "Голландский"

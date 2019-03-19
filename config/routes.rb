@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  get 'dashbords/index'
 
+  get '/change_locale/:locale', to: 'settings#change_locale', as: :change_locale
+
+  get 'dashbords/index'
   namespace :api do
     namespace :v1 do
       resources :users do

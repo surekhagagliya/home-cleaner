@@ -1,26 +1,40 @@
 <nav class="navbar navbar-expand-sm bg-success rounded navbar-dark">
     <!-- Brand -->
-    <a class="navbar-brand" href="<%= root_path%>">Cleaning Service</a>
+    <a class="navbar-brand" href="<%= root_path%>"><%= t :Cleaning_Service %></a>
 
     <!-- Links -->
     <ul class="navbar-nav ml-auto">
-            <% if current_user.present?%>
-                <li class="nav-item active">
-                    <%= link_to  "City", cities_path, class:"nav-link" %>
-                </li>
-                <li class="nav-item active">
-                    <%= link_to  "Cleaner", cleaners_path, class:"nav-link" %>
-                </li>
-            <% end %>
+        <% if current_user.present?%>
             <li class="nav-item active">
-                <%= link_to  "Bookings", new_booking_path, class: "nav-link" %>
+                <%= link_to t('menu.city'), cities_path, class:"nav-link" %>
             </li>
-
+            <li class="nav-item active">
+                <%= link_to t('menu.cleaner'), cleaners_path, class:"nav-link" %>
+            </li>
+        <% end %>
+        <li class="nav-item active">
+            <%= link_to t('menu.booking'), new_booking_path, class: "nav-link" %>
+        </li>
+        <!-- Language Dropdown -->
+        <li class="nav-item dropdown">
+            <% if current_user.present?%>
+                <a class="nav-link active dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown">
+                    <%= t :Languages %>
+                <div class="dropdown-menu active">
+                    <%= link_to t('menu.languages.en'), change_locale_path(:en), class:"dropdown-item" %>
+                    <hr>
+                    <%= link_to t('menu.languages.ru'), change_locale_path(:ru), class:"dropdown-item" %>
+                    <hr>
+                    <%= link_to t('menu.languages.du'), change_locale_path(:du), class:"dropdown-item" %>
+                </div>
+            <% end %>
+        </li>
         <!-- Dropdown -->
         <li class="nav-item dropdown">
             <% if current_user.present?%>
                 <a class="nav-link active dropdown-toggle" href="" id="navbardrop" data-toggle="dropdown">
-                    <%= current_user.email%></a>
+                    <%= user = current_user.email %></a>
+                    </a>
                 <div class="dropdown-menu active">
                     <% if current_user.profile.present?%>
                         <a class="dropdown-item"><strong>Mobile.</strong><%= current_user.profile.mobile_no%></a>

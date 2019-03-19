@@ -1,0 +1,12 @@
+du:
+  Languages: 'talen'
+  Cleaning_Service: "Schoonmaakdienst"
+  menu:
+    city: "stad"
+    cleaner: "schoonmaakster"
+    booking: "Boekingen"
+    languages:
+      lang: "Taal"
+      ru: "Russisch"
+      en: "Engels"
+      du: "Nederlands"
